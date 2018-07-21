@@ -1,10 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="header" class="header">
+      <div></div>
     </div>
-    <router-view/>
+    <div class="wrapper">
+      <h1>Message center</h1>
+      <div class="main-wrapper">
+        <div class="main-tab">
+          <router-link to="/">
+            <a href="#/" class="main-tab-item" id="main-tab-show" data-log="{'target':'setting','subTarget':'msg-view'}">
+              <span class="main-tab-item-icon message-show-tab-icon">Messages</span>
+              <span class="main-tab-item-arrow-wrapper"><span class="main-tab-item-arrow"></span></span>
+            </a>
+          </router-link>
+          <router-link to="/setting">
+            <a href="#/setting" class="main-tab-item" id="main-tab-setting" data-log="{'target':'setting','subTarget':'msg-setting'}">
+              <span class="main-tab-item-icon message-setting-tab-icon">Setting</span>
+              <span class="main-tab-item-arrow-wrapper"><span class="main-tab-item-arrow"></span></span>
+            </a>
+          </router-link>
+        </div>
+        <router-view/>
+      </div>
+    </div>
+    <div class="foot">
+      <p>©2014 conanmy</p>
+    </div>
   </div>
 </template>
 
