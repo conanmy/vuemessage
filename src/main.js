@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import './assets/styles/main.less'
 import './request';
+import axios from 'axios'
+Vue.use(axios)
 
 Vue.config.productionTip = false
 
