@@ -7,20 +7,20 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    { path: '/', redirect: { name: 'show' }},
     {
-      path: '/',
+      path: '/show',
       name: 'show',
+      component: Show
+    },
+    {
+      path: '/show/:categoryId',
       component: Show
     },
     {
       path: '/setting',
       name: 'setting',
       component: Setting
-    },
-    {
-      path: '/:messageType',
-      name: 'show',
-      component: Show
     }
   ]
 })

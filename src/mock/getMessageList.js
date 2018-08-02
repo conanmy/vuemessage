@@ -1,5 +1,4 @@
-'use strict';
-exports.index = function() {
+export default function() {
     var res = {
         data: {
             pageNum: 3,
@@ -120,4 +119,4 @@ exports.index = function() {
     }
     
     return res;
-};
+}

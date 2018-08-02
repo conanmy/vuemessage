@@ -2,7 +2,7 @@
   <div class="message-tab">
     <div v-bind:key="category.id" v-for="category in categories">
       <div class="message-tab-item" v-bind:class="{current: isCurrent(category)}" v-on:click="changeTab(category.id)">
-        {{category.name}}<span ms-if="category.msgNum" class="new-message-num">{{category.msgNum}}</span>
+        {{category.name}}<span v-if="category.msgNum && category.msgNum > 0" class="new-message-num">{{category.msgNum}}</span>
       </div>
       <div v-bind:key="subcategory.id" v-for="subcategory in category.subCategoryList">
         <div class="message-tab-item message-tab-sub-item" v-bind:class="{current: isCurrent(subcategory)}" v-on:click="changeTab(subcategory.id)">
@@ -31,6 +31,9 @@ export default {
   methods: {
     isCurrent: function(category) {
       return (category.id==this.$route.params.categoryId)
+    },
+    changeTab: function(categoryId) {
+      this.$router.push({path: `/show/${categoryId}`});
     }
   },
   mounted: function() {

@@ -2,34 +2,20 @@
   <div class="show">
     <MessageTabs />
     <div class="message-main clearfix">
-      <ul>
-        <li v-bind:key="message.msgId" v-for="message in messages">
-          {{ message.msgText }}
-        </li>
-      </ul>
+      <MessageList />
     </div>
   </div>
 </template>
 
 <script>
-import * as axios from 'axios'
 import MessageTabs from '../components/MessageTabs'
+import MessageList from '../components/MessageList'
 
 export default {
   name: 'show',
   components: {
-    MessageTabs
-  },
-  data: function() {
-    return {
-      messages: []
-    }
-  },
-  mounted: function() {
-    let that = this
-    axios.get('/messages').then(function(response) {
-      that.$set(that, 'messages', response.data.messages)
-    })
+    MessageTabs,
+    MessageList
   }
 }
 </script>
